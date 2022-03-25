@@ -14,8 +14,7 @@ from pathlib import Path
 import logging
 import django.utils.log
 import logging.handlers
-#import pymysql         # 一定要添加这两行！
-#pymysql.install_as_MySQLdb()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -97,19 +96,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'minzufs.wsgi.application'
 
 # Database
-
-#DATABASES = {
-   #  'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-     #    'NAME': 'xxxxxx',
-     #    'USER':'xxxxxx',      #创建数据库用户
-    #    'PASSWORD':'xxxxxx',#数据库密码
-    #     'HOST':'xxxxx',
-     #  'POST':'3306'
-    # }
-#}
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',

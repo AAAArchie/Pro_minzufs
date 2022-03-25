@@ -37,20 +37,14 @@ def predict():
     test_images = [test_dir + i for i in os.listdir(test_dir)]  # 列表生成式，逐个字母生成路径  os.listdir输出path下的各种文件
     count = len(test_images)
     data = np.ndarray((count, ROWS, COLS, CHANNELS), dtype=np.uint8)  # data-type 数组中元素的类型
-    print("图片网维度：")
-    print(data.shape)
     for i, image_file in enumerate(test_images):
         # 获取测试图片文件，并进行处理enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
         image = read_image(image_file)
         data[i] = image
-        print('处理 {} of {}'.format(i, count))
     test = data
 
     # 模型预测,输入测试集,输出预测结果  输出预测概率
     predictions = model.predict(test / 127.5 - 1)
-    print(predictions)
-    # 输出最大值索引
-    print(np.argmax(predictions, axis=1))
     length = len(predictions)
     for i in range(length):
         result = []

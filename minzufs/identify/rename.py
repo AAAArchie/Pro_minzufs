@@ -36,8 +36,5 @@ class BatchRename:
             i = i + 1
             new_time = time.time()
             time_consuming = round(new_time - old_time, 2)
-            print('该民族数量：' + str(i) + '张')
-            print('最大可能性：'+label[result[0]], '\n' '第二可能性：'+label[result[1]], '\n' '第三可能性：'+label[result[2]], '\n'
-                  '存放地址：'+dst, '\n' '耗时：%s秒' % time_consuming)
 
         return label[result[0]], label[result[1]], label[result[2]], dst, time_consuming
