@@ -1,6 +1,7 @@
 from users.models import UserProfile
 
 
+# 设置返回数据的格式
 def jwt_response_payload_handler(token, user: UserProfile = None, request=None):
     """
     自定义jwt认证成功返回数据

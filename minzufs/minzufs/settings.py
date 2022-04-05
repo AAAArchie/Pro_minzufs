@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
+import datetime
 import os
 from pathlib import Path
 import logging
@@ -28,7 +29,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'xyt7vrx*5gbtu-hrxonxqv(02454a^l7l%f(vc&$nl#sye^kb0'  # 用于jwt的最后密钥加密
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -45,7 +46,6 @@ INSTALLED_APPS = [
     # apps_files：
     'identify',
     'users',
-    # 测试app
 
     # 框架
     'rest_framework',
@@ -60,7 +60,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware', # 中间件监听跨域响应，放在中间件之前，不然可能无法将CORS头添加到部分响应中
+    'corsheaders.middleware.CorsMiddleware',  # 中间件监听跨域响应，放在中间件之前，不然可能无法将CORS头添加到部分响应中
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -158,10 +158,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # 发送激活邮件
 # EMAIL_HOST = "smtp.qq.com"  # SMTP服务器主机
 # EMAIL_PORT = 25  # 端口
-# EMAIL_HOST_USER = "xxxxxx@qq.com"  # 邮箱地址
-# EMAIL_HOST_PASSWORD = "xxx"  # (授权码)密码
+# EMAIL_HOST_USER = "411461424@qq.com"  # 邮箱地址
+# EMAIL_HOST_PASSWORD = "dwdfygukkqzpbhba"  # (授权码)密码
 # EMAIL_USE_TLS = True
-# EMAIL_FROM = "xxxxxx@qq.com"  # 邮箱地址
+# EMAIL_FROM = "411461424@qq.com"  # 邮箱地址
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -179,9 +179,13 @@ REST_FRAMEWORK = {
     # 接口文档
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
 }
+
+
 JWT_AUTH = {
     # 设置返回数据的格式
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'users.views.jwt_response_payload_handler',
+    # 设置有效期
+    'JWT_VERIFY_EXPIRATION_DELTA': datetime.timedelta(days=1)
 }
 # # 若这里设置了登陆不会过期，这存在很大的安全问题
 # from datetime import timedelta

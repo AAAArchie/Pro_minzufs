@@ -1,8 +1,8 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from 'vue-router'
 import Home from '../views/Home.vue'
-import Upload from "../views/Upload.vue";
+import Upload from "../views/SimpleRecognition.vue";
 import Introduction from "../views/Introduction.vue";
-import Recognition from "../views/Recognition.vue";
+import Recognition from "../views/CropRecognition.vue";
 import UserCenter from "../views/UserCenter.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
